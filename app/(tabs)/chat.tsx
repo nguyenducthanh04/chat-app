@@ -1,5 +1,5 @@
 import { FontAwesome6, Ionicons } from '@expo/vector-icons';
-import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 
 export default function ChatScreen() {
@@ -21,6 +21,30 @@ export default function ChatScreen() {
       <View style={styles.search}>
         <Ionicons name="search" size={20} color="#888" style={styles.icon} />
         <TextInput style={styles.searchInput} placeholder='Tìm kiếm'/>
+      </View>
+      <View style={styles.messages}>
+        <View style={styles.messageItem}>
+         <View style={styles.messageItemLeft}>
+           <Image style={styles.messageImage} source={require("../../assets/images/avatar.jpg")}/>
+          <View style={styles.messageItemRight}>
+            <Text>Nguyen Duc Thanh</Text>
+            <Text style={styles.messageText}>好的</Text>
+          </View>
+         </View>
+          <View>
+            <Text style={{color: '#808080'}}>04:00 PM</Text>
+            <Text style={{color: '#FF0000', fontWeight: 'bold'}}>2</Text>
+          </View>
+        </View>
+        <View style={styles.messageItem}>
+         <View style={styles.messageItemLeft}>
+          <Image style={styles.messageImage} source={require("../../assets/images/saved.png")}/>
+          <View style={{marginLeft: 12, width: '80%'}}>
+            <Text>Ghi chú Keep</Text>
+            <Text style={styles.messageText}>Gửi vào mọi văn bản, ảnh, video và link bạn muốn giữ riêng cho mình.</Text>
+          </View>
+         </View>
+        </View>
       </View>
     </View>
    </ScrollView>
@@ -56,7 +80,7 @@ const styles = StyleSheet.create({
     marginLeft: 20
   },
   content: {
-
+    
   },
   search: {
     flexDirection: "row",   
@@ -76,4 +100,31 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#fff",
   },
+  messages: {
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  messageImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 90
+  },
+  messageItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20,
+  },
+  messageText: {
+    flexShrink: 1,       
+    flexWrap: 'wrap',  
+    color: "#808080"
+  },
+  messageItemLeft: {
+    flexDirection: "row"
+  },
+  messageItemRight: {
+    marginLeft: 12,
+    width: '60%',
+  }
 });
